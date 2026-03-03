@@ -1,0 +1,42 @@
+<!-- URL: http://localhost:3000/signup.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - PawDesk</title>
+    <link rel="stylesheet" href="css/signupStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <img src="img/logo-pawdesk.png" alt="Logo PawDesk" class="logo">
+    <h1>Registro de usuario</h1>
+
+    <form id="signupForm" novalidate>
+        <div>
+            <label for="username">Nombre de usuario:</label>
+            <input type="text" id="username" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" required>
+        </div>
+        <div>
+            <label for="confirmPassword">Repetir contraseña:</label>
+            <input type="password" id="confirmPassword" required>
+        </div>
+
+        <button type="submit">Registrarse</button>
+
+    </form>
+
+    <p>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
