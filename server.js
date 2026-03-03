@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rutas
+// Ruta pacientes
 app.use('/api/pacientes', pacientesRoute);
 
 // Ruta de prueba
