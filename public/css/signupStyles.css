@@ -126,3 +126,21 @@ a:hover {
   border-radius: 50%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}

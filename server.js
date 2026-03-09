@@ -6,7 +6,7 @@ const cors = require('cors');
 
 // Importar rutas
 const pacientesRoute = require('./routes/pacientesRoute.js');
-// (authRoutes vendrá después)
+const authRoute = require('./routes/authRoute.js');
 
 // Crear app
 const app = express();
@@ -22,10 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Ruta pacientes
 app.use('/api/pacientes', pacientesRoute);
 
-// Ruta de prueba
+//ruta auth
+app.use('/api/auth', authRoute);
+
+/*Ruta de prueba
 app.get('/', (req, res) => {
   res.json({ message: 'API Clínica Veterinaria funcionando' });
-});
+});*/
 
 // Puerto
 const PORT = process.env.PORT || 3000;
