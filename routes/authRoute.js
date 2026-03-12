@@ -26,4 +26,31 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+// ruta para login de usuario
+router.post("/login", async (req, res) => {
+
+  const { email, password } = req.body;
+
+  try {
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      return res.status(400).json({ error: error.message });
+    }
+
+    res.status(200).json({
+      message: "Login correcto",
+      user: data.user
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: "Error en el servidor" });
+  }
+
+});
+
 module.exports = router;
