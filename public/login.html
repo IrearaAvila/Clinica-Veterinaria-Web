@@ -1,0 +1,42 @@
+<!-- URL: http://localhost:3000/login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PawDesk</title>
+    <link rel="stylesheet" href="css/loginStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <img src="img/logo-pawdesk.png" alt="Logo PawDesk" class="logo">
+
+        <h1>Iniciar sesión</h1>
+
+        <form id="loginForm" novalidate>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required placeholder="usuario@clinica.com">
+            </div>
+            <div class="password-field">
+                <input type="password" id="password" required placeholder="Contraseña">
+                <i class="fa-solid fa-eye togglePassword" data-target="password"></i>
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p>¿No tienes cuenta? <a href="signup.html">Regístrate</a></p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
