@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fondo general (mismo estilo que login) */
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dff5ec, #b8e4d5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor principal */
+
+.dashboard {
+  width: 100%;
+  max-width: 1100px;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 40px auto;
+  flex: 1;
+}
+
+/* Título */
+
+.dashboard h1 {
+  color: #10452d;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Grid de tarjetas */
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* Tarjetas */
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 30px 20px;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid #27745d;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  transition: all 0.25s ease;
+}
+
+/* Icono */
+
+.card i {
+  font-size: 40px;
+  color: #3db6a4;
+  margin-bottom: 15px;
+}
+
+/* Título tarjeta */
+
+.card h2 {
+  color: #10452d;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* Texto tarjeta */
+
+.card p {
+  font-size: 14px;
+  color: #4a5a60;
+}
+
+/* Hover bonito */
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}

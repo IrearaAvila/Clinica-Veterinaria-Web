@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PawDesk</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboardStyles.css">
+    <link rel="stylesheet" href="css/headerStyles.css">
+    <link rel="stylesheet" href="css/footerStyles.css">
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+        <!-- HEADER REUTILIZABLE -->
+    <div id="header-container"></div>
+
+    <main class="dashboard">
+
+        <h1>Panel de Control</h1>
+
+        <div class="cards-container">
+
+            <a href="pacientes.html" class="card">
+                <i class="fa-solid fa-paw"></i>
+                <h2>Pacientes</h2>
+                <p>Gestiona los pacientes de la clínica</p>
+            </a>
+
+            <a href="citas.html" class="card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h2>Citas</h2>
+                <p>Administra las citas veterinarias</p>
+            </a>
+
+            <a href="informes.html" class="card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Informes</h2>
+                <p>Consulta estadísticas y reportes</p>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER REUTILIZABLE -->
+    <div id="footer-container"></div>
+
+    <!-- JS -->
+    <script src="js/header-footer.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

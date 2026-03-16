@@ -1,0 +1,13 @@
+.main-footer {
+  width: 100%;
+  background: rgb(41, 134, 125);
+  margin-top: auto;
+  padding: 15px 20px;
+  text-align: center;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+}
+
+.main-footer p {
+  font-size: 14px;
+  color: #cce0e8;
+}
