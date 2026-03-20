@@ -1,10 +1,11 @@
 const supabase = require ('../config/supabase');
 
 /*OBTENER TODOS LOS PACIENTES DE LA BASE DE DATOS*/
-const getAllPacientesService = async () => {
+const getAllPacientesService = async (userId) => {
     const { data, error } = await supabase
     .from('Pacientes')
-    .select('*');
+    .select('*')
+    .eq('user_id', userId);
 
     if (error) throw error;
     return data;
@@ -16,6 +17,7 @@ const getPacienteByIdService = async (id) => {
     .from('Pacientes')
     .select('*')
     .eq('id', id)
+    .eq('user_id', userId)
     .maybeSingle();
 
     if (error) throw error;
@@ -24,6 +26,7 @@ const getPacienteByIdService = async (id) => {
 
 /*CREAR NUEVO PACIENTE (CREATE)*/
 const createPacienteService = async (paciente) => {
+    console.log("PACIENTE QUE SE ENVÍA:", paciente);
     const { data, error } = await supabase
     .from('Pacientes')
     .insert(paciente)
@@ -40,6 +43,7 @@ const updatePacienteService = async (id, paciente) => {
     .from ('Pacientes')
     .update(paciente)
     .eq('id', id)
+    .eq('user_id', userId)
     .select()
     .single();
 
@@ -52,7 +56,8 @@ const deletePacienteService = async (id) => {
     const { error } = await supabase
     .from('Pacientes')
     .delete()
-    .eq('id', id);
+    .eq('id', id)
+    .eq('user_id', userId);
 
     if (error) throw error;
     return true;

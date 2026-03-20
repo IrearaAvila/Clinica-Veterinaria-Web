@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const authMiddleware = require('../middleware/authMiddleware');
 
 const {
   getPacientes,
@@ -9,11 +10,11 @@ const {
   deletePaciente
 } = require('../controllers/pacientesController');
 
-router.get('/', getPacientes);
-router.get('/:id', getPaciente);
-router.post('/', createPaciente);
-router.put('/:id', updatePaciente);
-router.delete('/:id', deletePaciente);
+router.get('/', authMiddleware, getPacientes);
+router.get('/:id', authMiddleware, getPaciente);
+router.post('/', authMiddleware, createPaciente);
+router.put('/:id', authMiddleware, updatePaciente);
+router.delete('/:id', authMiddleware, deletePaciente);
 
 /*Ruta de prueba
 router.get('/', (req, res) => {
