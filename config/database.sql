@@ -4,5 +4,6 @@ create table public."Pacientes" (
   nombre text not null default 'not null'::text,
   edad smallint null,
   propietario_id uuid null,
-  observaciones text null
+  observaciones text null,
+  user_id uuid null
 ) TABLESPACE pg_default;

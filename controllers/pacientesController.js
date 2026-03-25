@@ -9,8 +9,12 @@ const {
 /*LISTAR PACIENTES*/
 const getPacientes = async (req, res) => {
   try {
-    const pacientes = await getAllPacientesService();
+    const userId = req.user.id;
+
+    const pacientes = await getAllPacientesService(userId);
+
     res.json(pacientes);
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -19,7 +23,7 @@ const getPacientes = async (req, res) => {
 /* DEVUELVE PACIENTE POR ID */
 const getPaciente = async (req, res) => {
   try {
-    const paciente = await getPacienteByIdService(req.params.id);
+    const paciente = await getPacienteByIdService(req.params.id, req.user.id);
 
     if (!paciente) {
       return res.status(404).json({ error: 'Paciente no encontrado' });
@@ -50,8 +54,15 @@ const createPaciente = async (req, res) => {
   }
 
   try {
-    const nuevoPaciente = await createPacienteService(req.body);
+    const pacienteData = {
+      ...req.body,
+      user_id: req.user.id
+    };
+
+    const nuevoPaciente = await createPacienteService(pacienteData);
+
     res.status(201).json(nuevoPaciente);
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -77,7 +88,8 @@ const updatePaciente = async (req, res) => {
   try {
     const pacienteActualizado = await updatePacienteService(
       req.params.id,
-      req.body
+      req.body,
+      req.user.id
     );
     res.json(pacienteActualizado);
   } catch (error) {
@@ -88,7 +100,7 @@ const updatePaciente = async (req, res) => {
 /*ELIMINAR PACIENTE POR ID*/
 const deletePaciente = async (req, res) => {
   try {
-    await deletePacienteService(req.params.id);
+    await deletePacienteService(req.params.id, req.user.id);
     res.status(204).send();
   } catch (error) {
     res.status(400).json({ error: error.message });
