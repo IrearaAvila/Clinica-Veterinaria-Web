@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes - PawDesk</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/pacientesStyles.css">
+    <link rel="stylesheet" href="css/headerStyles.css">
+    <link rel="stylesheet" href="css/footerStyles.css">
+    <link rel="stylesheet" href="css/sidebarStyles.css">
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <!--TOAST-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+    <!-- HEADER REUTILIZABLE -->
+    <div id="header-container"></div>
+
+    <div class="layout">
+
+        <!-- SIDEBAR (reutilizable más adelante) -->
+        <div id="sidebar-container"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <div class="top-bar">
+                <h1>Pacientes</h1>
+
+                <div class="top-actions">
+                    <input 
+                        type="text" 
+                        id="search-id" 
+                        placeholder="Buscar por ID..."
+                    >
+
+                    <button id="btn-buscar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+                    <button id="btn-nuevo">
+                        <i class="fa-solid fa-plus"></i> Nuevo paciente
+                    </button>
+                </div>
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-container">
+                <table id="tabla-pacientes">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Observaciones</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="pacientes-body">
+                        <!-- JS pinta aquí -->
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- FOOTER REUTILIZABLE -->
+    <div id="footer-container"></div>
+    </div>
+    <!-- JS -->
+    <script src="js/header-footer.js"></script>
+    <script src="js/layout.js"></script> <!-- aquí meteremos el sidebar -->
+    <script src="js/pacientes.js"></script>
+
+</body>
+</html>
