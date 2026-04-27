@@ -1,18 +1,27 @@
 const supabase = require ('../config/supabase');
 
 /*OBTENER TODOS LOS PACIENTES DE LA BASE DE DATOS*/
-const getAllPacientesService = async (userId) => {
-    const { data, error } = await supabase
+const getAllPacientesService = async (userId, nombre = null) => {
+
+  let query = supabase
     .from('Pacientes')
     .select('*')
     .eq('user_id', userId);
 
-    if (error) throw error;
-    return data;
+  if (nombre) {
+    query = query.ilike('nombre', `%${nombre}%`);
+  }
+
+  const { data, error } = await query;
+
+  if (error) throw error;
+
+  return data;
 };
 
 /*OBTENER 1 PACIENTE POR SU ID*/
-const getPacienteByIdService = async (id) => {
+// Ahora recibe id y userId para asegurar que el paciente pertenece al usuario autenticado
+const getPacienteByIdService = async (id, userId) => {
     const { data, error } = await supabase
     .from('Pacientes')
     .select('*')
@@ -38,7 +47,8 @@ const createPacienteService = async (paciente) => {
 };
 
 /*ACTUALIZAR PACIENTE EXISTENTE*/
-const updatePacienteService = async (id, paciente) => {
+// Ahora recibe id, objeto paciente y userId para garantizar permisos de escritura
+const updatePacienteService = async (id, paciente, userId) => {
     const { data, error } = await supabase
     .from ('Pacientes')
     .update(paciente)
@@ -52,7 +62,7 @@ const updatePacienteService = async (id, paciente) => {
 };
 
 /*ELIMINAR PACIENTE POR ID*/
-const deletePacienteService = async (id) => {
+const deletePacienteService = async (id, userId) => {
     const { error } = await supabase
     .from('Pacientes')
     .delete()
