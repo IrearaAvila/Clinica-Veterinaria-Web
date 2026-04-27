@@ -51,6 +51,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     if (response.ok) {
 
+      localStorage.setItem("token", data.session.access_token);
+
       showToast("Login correcto", "#4CAF50");
 
       setTimeout(() => {

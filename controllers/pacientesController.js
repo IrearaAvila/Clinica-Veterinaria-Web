@@ -6,12 +6,13 @@ const {
     deletePacienteService
 } = require('../services/pacientesService');
 
-/*LISTAR PACIENTES*/
+/* LISTAR PACIENTES / BUSCAR POR NOMBRE */
 const getPacientes = async (req, res) => {
   try {
     const userId = req.user.id;
+    const nombre = req.query.nombre;
 
-    const pacientes = await getAllPacientesService(userId);
+    const pacientes = await getAllPacientesService(userId, nombre);
 
     res.json(pacientes);
 
@@ -23,7 +24,10 @@ const getPacientes = async (req, res) => {
 /* DEVUELVE PACIENTE POR ID */
 const getPaciente = async (req, res) => {
   try {
-    const paciente = await getPacienteByIdService(req.params.id, req.user.id);
+    const paciente = await getPacienteByIdService(
+      req.params.id,
+      req.user.id
+    );
 
     if (!paciente) {
       return res.status(404).json({ error: 'Paciente no encontrado' });
