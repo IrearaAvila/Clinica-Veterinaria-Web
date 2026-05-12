@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Paciente - PawDesk</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/headerStyles.css">
+    <link rel="stylesheet" href="css/footerStyles.css">
+    <link rel="stylesheet" href="css/sidebarStyles.css">
+    <link rel="stylesheet" href="css/nuevoPacienteStyles.css">
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!--TOAST-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- HEADER -->
+        <div id="header-container"></div>
+
+        <div class="layout">
+
+            <!-- SIDEBAR -->
+            <div id="sidebar-container"></div>
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <main class="main-content">
+
+                <div class="form-container">
+
+                    <div class="form-card">
+
+                        <h1 class="form-title">Nuevo paciente</h1>
+
+                        <p class="form-subtitle">
+                            Completa la información básica del paciente
+                        </p>
+
+                        <form id="nuevo-paciente-form">
+
+                            <div class="form-group">
+                                <label for="input-nombre">Nombre *</label>
+
+                                <input
+                                    type="text"
+                                    id="input-nombre"
+                                    name="nombre"
+                                    placeholder="Nombre del paciente"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-edad">Edad *</label>
+
+                                <input
+                                    type="number"
+                                    id="input-edad"
+                                    name="edad"
+                                    placeholder="Edad"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-observaciones">Observaciones</label>
+
+                                <textarea
+                                    id="input-observaciones"
+                                    name="observaciones"
+                                    placeholder="raza, especie, consulta..."
+                                ></textarea>
+                            </div>
+
+                            <div class="form-actions">
+
+                                <button type="button" id="btn-cancelar">
+                                    Cancelar
+                                </button>
+
+                                <button type="submit" id="btn-guardar">
+                                    Guardar paciente
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer-container"></div>
+
+    </div>
+
+    <!-- JS -->
+     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/header-footer.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/nuevoPaciente.js"></script>
+
+</body>
+</html>
