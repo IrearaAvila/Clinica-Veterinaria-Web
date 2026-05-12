@@ -42,7 +42,7 @@ const getPaciente = async (req, res) => {
 
 /*CREAR NUEVO PACIENTE*/
 const createPaciente = async (req, res) => {
-  const { nombre, edad, propietario_id } = req.body;
+  const { nombre, edad, observaciones } = req.body;
 
   // Validaciones
   if (!nombre || nombre.trim() === '') {
@@ -53,13 +53,16 @@ const createPaciente = async (req, res) => {
     return res.status(400).json({ error: 'La edad es obligatoria y debe ser un número' });
   }
 
-  if (!propietario_id) {
+  /**if (!propietario_id) {
     return res.status(400).json({ error: 'El propietario es obligatorio' });
-  }
+  }*/
 
   try {
     const pacienteData = {
-      ...req.body,
+      nombre,
+      edad,
+      observaciones,
+      propietario_id: null,
       user_id: req.user.id
     };
 
@@ -74,7 +77,7 @@ const createPaciente = async (req, res) => {
 
 /*ACTUALIZAR PACIENTE*/
 const updatePaciente = async (req, res) => {
-  const { nombre, edad, propietario_id } = req.body;
+  const { nombre, edad, observaciones } = req.body;
 
   // Validaciones
   if (nombre !== undefined && nombre.trim() === '') {
@@ -85,9 +88,9 @@ const updatePaciente = async (req, res) => {
     return res.status(400).json({ error: 'La edad debe ser un número' });
   }
 
-  if (propietario_id !== undefined && !propietario_id) {
+  /**if (propietario_id !== undefined && !propietario_id) {
     return res.status(400).json({ error: 'El propietario no puede ser null' });
-  }
+  }*/
 
   try {
     const pacienteActualizado = await updatePacienteService(
