@@ -181,7 +181,7 @@ async function eliminarPaciente(id) {
 // EDITAR
 // ==============================
 function editarPaciente(id) {
-  window.location.href = `/editarPaciente.html?id=${id}`;
+  window.location.href = `/actualizarPaciente.html?id=${id}`;
 }
 
 // ==============================
