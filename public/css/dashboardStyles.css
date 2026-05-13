@@ -83,3 +83,14 @@ body {
   transform: translateY(-6px);
   box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
+
+.disabled-card {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.disabled-card:hover {
+    transform: none;
+    box-shadow: none;
+}
